@@ -71,9 +71,9 @@ commands:
               #echo 'export DISPLAY=:99.0' >> $BASH_ENV
               #sh -e /etc/init.d/xvfb start
               # Update NPM
-              npm install -g npm
+              #npm install -g npm
               # Install Yarn
-              npm install -g yarn
+              #npm install -g yarn
               $JHI_SCRIPTS/04-git-config.sh
         - save_cache:
             key: node-cache-{{ .Environment.CIRCLE_JOB }}
