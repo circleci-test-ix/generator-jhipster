@@ -178,7 +178,7 @@ jobs:
     steps:
       - build_steps
       
-  =ngx-couchbase:
+  ngx-couchbase:
     exector: default-executor
     environment:
       JHI_APP: ngx-couchbase
