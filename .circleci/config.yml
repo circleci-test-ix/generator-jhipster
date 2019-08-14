@@ -4,15 +4,15 @@ workflows:
   version: 2
   build:
     jobs:
-    - ngx-default
-    - ngx-psql-es-noi18n-mapsid
-    - ngx-gradle-fr
-    - ms-ngx-gateway-eureka
-    - ms-micro-eureka
-    - ms-micro-consul
-    - ngx-mongodb-kafka-cucumber
-    - ngx-session-cassandra-fr
-    - ngx-couchbase
+      - ngx-default
+      - ngx-psql-es-noi18n-mapsid
+      - ngx-gradle-fr
+      - ms-ngx-gateway-eureka
+      - ms-micro-eureka
+      - ms-micro-consul
+      - ngx-mongodb-kafka-cucumber
+      - ngx-session-cassandra-fr
+      - ngx-couchbase
 
 executors:
   default-executor:
@@ -105,7 +105,7 @@ commands:
               
 jobs:
   ngx-default:
-    exector: default-executor
+    executor: default-executor
     environment:
       JHI_APP: ngx-default
       JHI_PROFILE: prod
@@ -116,7 +116,7 @@ jobs:
       - build_steps
       
   ngx-psql-es-noi18n-mapsid:
-    exector: default-executor
+    executor: default-executor
     environment:
       JHI_APP: ngx-psql-es-noi18n-mapsid
       JHI_PROFILE: prod
@@ -126,7 +126,7 @@ jobs:
       - build_steps
       
   ngx-gradle-fr:
-    exector: default-executor
+    executor: default-executor
     environment:
       JHI_APP: ngx-gradle-fr
       JHI_PROFILE: prod
@@ -137,7 +137,7 @@ jobs:
       - build_steps
       
   ms-ngx-gateway-eureka:
-    exector: default-executor
+    executor: default-executor
     environment:
       JHI_APP: ms-ngx-gateway-eureka
       JHI_ENTITY: sql
@@ -146,7 +146,7 @@ jobs:
       - build_steps
       
   ms-micro-eureka:
-    exector: default-executor
+    executor: default-executor
     environment:
       JHI_APP: ms-micro-eureka
       JHI_ENTITY: micro
@@ -155,7 +155,7 @@ jobs:
       - build_steps
       
   ms-micro-consul:
-    exector: default-executor
+    executor: default-executor
     environment:
       JHI_APP: ms-micro-consul
       JHI_ENTITY: micro
@@ -163,7 +163,7 @@ jobs:
       - build_steps
       
   ngx-mongodb-kafka-cucumber:
-    exector: default-executor
+    executor: default-executor
     environment:
       JHI_APP: ngx-mongodb-kafka-cucumber
       JHI_ENTITY: mongodb
@@ -171,7 +171,7 @@ jobs:
       - build_steps
       
   ngx-session-cassandra-fr:
-    exector: default-executor
+    executor: default-executor
     environment:
       JHI_APP: ngx-session-cassandra-fr
       JHI_ENTITY: cassandra
@@ -179,7 +179,7 @@ jobs:
       - build_steps
       
   ngx-couchbase:
-    exector: default-executor
+    executor: default-executor
     environment:
       JHI_APP: ngx-couchbase
       JHI_PROFILE: prod
