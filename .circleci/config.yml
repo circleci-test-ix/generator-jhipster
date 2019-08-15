@@ -21,7 +21,7 @@ executors:
       - image: circleci/openjdk:8-jdk-node-browsers
         environment:
           JAVA_TOOL_OPTIONS: "-Xmx4g"
-          NODE_OPTIONS: "--max_old_space_size=8192"
+#           NODE_OPTIONS: "--max_old_space_size=8192"
 #           GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2"
           JHI_PROFILE: dev
           JHI_RUN_APP: 1
@@ -190,9 +190,9 @@ jobs:
             #echo 'export DISPLAY=:99.0' >> $BASH_ENV
             #sh -e /etc/init.d/xvfb start
             # Update NPM
-            #npm install -g npm
+            npm install -g npm
             # Install Yarn
-            #sudo npm install -g yarn
+            npm install -g yarn
             $JHI_SCRIPTS/04-git-config.sh        
       - run:
           name: Install
