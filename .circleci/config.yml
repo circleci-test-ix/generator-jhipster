@@ -90,8 +90,8 @@ commands:
               #----------------------------------------------------------------------
               # Install JHipster and generate project+entities
               #----------------------------------------------------------------------
-              sudo chown -R circleci:circleci /usr/local/lib/node_modules
-              sudo chown -R circleci:circleci /usr/local/bin
+              #sudo chown -R circleci:circleci /usr/local/lib/node_modules
+              #sudo chown -R circleci:circleci /usr/local/bin
 
               export NVM_DIR="/opt/circleci/.nvm"
               [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -104,7 +104,9 @@ commands:
               $JHI_SCRIPTS/14-jhipster-info.sh
               
               $JHI_SCRIPTS/20-docker-compose.sh
+              echo "tests backend"
               $JHI_SCRIPTS/21-tests-backend.sh
+              echo "tests backend"
               $JHI_SCRIPTS/22-tests-frontend.sh
               $JHI_SCRIPTS/23-package.sh
               $JHI_SCRIPTS/24-tests-e2e.sh
