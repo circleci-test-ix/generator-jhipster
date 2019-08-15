@@ -42,7 +42,8 @@ commands:
   build_steps:
     steps:
         - checkout
-        - setup_remote_docker
+        - setup_remote_docker:
+            docker_layer_caching: true
 #         - restore_cache:
 #             key: cachev1-{{ .Environment.CIRCLE_JOB }}
         - run:
