@@ -16,7 +16,6 @@ workflows:
 
 executors:
   default-executor:
-    working_directory: ~/circleci-test-ix/generator-jhipster/project
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
         environment:
@@ -46,7 +45,10 @@ commands:
         - run:
             name: Set (Interpolated) Environment Variables
             command: |
+              # Set the travis environment variables since they are used in various scripts
               echo 'export JHI_SCRIPTS='"$CIRCLE_WORKING_DIRECTORY/test-integration/scripts" >> $BASH_ENV
+              echo 'export TRAVIS_BUILD_DIR='"$CIRCLE_WORKING_DIRECTORY" >> $BASH_ENV
+              echo 'export TRAVIS_REPO_SLUG='"$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME" >> $BASH_ENV              
         - run:
             name: Before Install
             command: |
