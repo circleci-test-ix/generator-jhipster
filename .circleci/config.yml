@@ -194,9 +194,9 @@ jobs:
             #curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
             #export NVM_DIR=$HOME/.nvm
             #source $NVM_DIR/nvm.sh
-            export NVM_DIR="/opt/circleci/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            nvm install 10.16.2
+            #export NVM_DIR="/opt/circleci/.nvm"
+            #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            #nvm install 10.16.2
             # Update NPM
             #npm install -g npm
             # Install Yarn
@@ -210,6 +210,10 @@ jobs:
             #----------------------------------------------------------------------
             #sudo chown -R circleci:circleci /usr/local/lib/node_modules
             #sudo chown -R circleci:circleci /usr/local/bin
+            
+            export NVM_DIR="/opt/circleci/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install 10.16.2
 
             $JHI_SCRIPTS/10-install-jhipster.sh
             $JHI_SCRIPTS/11-generate-entities.sh
