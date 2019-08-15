@@ -4,8 +4,8 @@ workflows:
   version: 2
   build:
     jobs:
-#       - ngx-default
-      - ngx-psql-es-noi18n-mapsid
+      - ngx-default
+#       - ngx-psql-es-noi18n-mapsid
 #       - ngx-gradle-fr
 #       - ms-ngx-gateway-eureka
 #       - ms-micro-eureka
@@ -93,6 +93,13 @@ commands:
               $JHI_SCRIPTS/12-generate-project.sh
               $JHI_SCRIPTS/13-replace-version-generated-project.sh
               $JHI_SCRIPTS/14-jhipster-info.sh
+              
+              $JHI_SCRIPTS/20-docker-compose.sh
+              $JHI_SCRIPTS/21-tests-backend.sh
+              $JHI_SCRIPTS/22-tests-frontend.sh
+              $JHI_SCRIPTS/23-package.sh
+              $JHI_SCRIPTS/24-tests-e2e.sh
+              $JHI_SCRIPTS/25-sonar-analyze.sh
         - run:
             name: Before Cache
             command: |
@@ -104,18 +111,18 @@ commands:
             paths: 
               - ~/.m2
               - ~/.gradle
-        - run:
-            name: Script
-            command: |
-              #----------------------------------------------------------------------
-              # Launch tests
-              #----------------------------------------------------------------------
-              $JHI_SCRIPTS/20-docker-compose.sh
-              $JHI_SCRIPTS/21-tests-backend.sh
-              $JHI_SCRIPTS/22-tests-frontend.sh
-              $JHI_SCRIPTS/23-package.sh
-              $JHI_SCRIPTS/24-tests-e2e.sh
-              $JHI_SCRIPTS/25-sonar-analyze.sh
+#         - run:
+#             name: Script
+#             command: |
+#               #----------------------------------------------------------------------
+#               # Launch tests
+#               #----------------------------------------------------------------------
+#               $JHI_SCRIPTS/20-docker-compose.sh
+#               $JHI_SCRIPTS/21-tests-backend.sh
+#               $JHI_SCRIPTS/22-tests-frontend.sh
+#               $JHI_SCRIPTS/23-package.sh
+#               $JHI_SCRIPTS/24-tests-e2e.sh
+#               $JHI_SCRIPTS/25-sonar-analyze.sh
               
 jobs:
   ngx-default:
