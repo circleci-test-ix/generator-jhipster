@@ -135,7 +135,7 @@ jobs:
     machine:
       image: ubuntu-1604:201903-01
     environment:
-      JHI_PROFILE: dev
+#       JHI_PROFILE: dev
       JHI_RUN_APP: 1
       JHI_PROTRACTOR: 0
       JHI_JDK: 8
