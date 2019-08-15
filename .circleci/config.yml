@@ -200,8 +200,8 @@ jobs:
             #----------------------------------------------------------------------
             # Install JHipster and generate project+entities
             #----------------------------------------------------------------------
-            sudo chown -R circleci:circleci /usr/local/lib/node_modules
-            sudo chown -R circleci:circleci /usr/local/bin
+            #sudo chown -R circleci:circleci /usr/local/lib/node_modules
+            #sudo chown -R circleci:circleci /usr/local/bin
 
             $JHI_SCRIPTS/10-install-jhipster.sh
             $JHI_SCRIPTS/11-generate-entities.sh
