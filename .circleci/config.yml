@@ -45,7 +45,7 @@ commands:
         - run:
             name: Set (Interpolated) Environment Variables
             command: |
-              echo 'export JHI_SCRIPTS='"CIRCLE_WORKING_DIRECTORY/test-integration/scripts" >> $BASH_ENV
+              echo 'export JHI_SCRIPTS='"$CIRCLE_WORKING_DIRECTORY/test-integration/scripts" >> $BASH_ENV
         - run:
             name: Before Install
             command: |
