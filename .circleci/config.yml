@@ -215,10 +215,15 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             nvm install 10.16.2
 
+            echo "install jhipster"
             $JHI_SCRIPTS/10-install-jhipster.sh
+            echo "generate entities"
             $JHI_SCRIPTS/11-generate-entities.sh
+            echo "generate project"
             $JHI_SCRIPTS/12-generate-project.sh
+            echo "replace version generated"
             $JHI_SCRIPTS/13-replace-version-generated-project.sh
+            echo "jhipster info"
             $JHI_SCRIPTS/14-jhipster-info.sh
 
             $JHI_SCRIPTS/20-docker-compose.sh
