@@ -19,7 +19,7 @@ executors:
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
         environment:
-          JAVA_TOOL_OPTIONS: "-Xmx4g"
+          JAVA_TOOL_OPTIONS: "-Xmx2g"
 #           GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2"
           JHI_PROFILE: dev
           JHI_RUN_APP: 1
