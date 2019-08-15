@@ -82,7 +82,7 @@ commands:
               # Install JHipster and generate project+entities
               #----------------------------------------------------------------------
               sudo chown -R circleci:circleci /usr/local/lib/node_modules
-              NPM_CONFIG_PREFIX=~/.npm-global
+              sudo chown -R circleci:circleci /usr/local/bin
               echo "install jhipster"
               $JHI_SCRIPTS/10-install-jhipster.sh
               echo "generate entities"
