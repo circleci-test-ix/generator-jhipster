@@ -41,7 +41,7 @@ commands:
     steps:
         - checkout
         - restore_cache:
-            key: node-cache-{{ .Environment.CIRCLE_JOB }}
+            key: cachev1-{{ .Environment.CIRCLE_JOB }}
         - run:
             name: Set (Interpolated) Environment Variables
             command: |
@@ -74,22 +74,28 @@ commands:
               #npm install -g npm
               # Install Yarn
               #npm install -g yarn
-              $JHI_SCRIPTS/04-git-config.sh
-        - save_cache:
-            key: node-cache-{{ .Environment.CIRCLE_JOB }}
-            paths: 
-              - ./node_modules
+              $JHI_SCRIPTS/04-git-config.sh        
         - run:
             name: Install
             command: |
               #----------------------------------------------------------------------
               # Install JHipster and generate project+entities
               #----------------------------------------------------------------------
-              $JHI_SCRIPTS/10-install-jhipster.sh
-              $JHI_SCRIPTS/11-generate-entities.sh
-              $JHI_SCRIPTS/12-generate-project.sh
-              $JHI_SCRIPTS/13-replace-version-generated-project.sh
-              $JHI_SCRIPTS/14-jhipster-info.sh
+              echo "install jhipster"
+              sudo $JHI_SCRIPTS/10-install-jhipster.sh
+              echo "generate entities"
+              sudo $JHI_SCRIPTS/11-generate-entities.sh
+              echo "generate project"
+              sudo $JHI_SCRIPTS/12-generate-project.sh
+              echo "replace version"
+              sudo $JHI_SCRIPTS/13-replace-version-generated-project.sh
+              echo "jhipster info"
+              sudo $JHI_SCRIPTS/14-jhipster-info.sh
+        - save_cache:
+            key: cachev1-{{ .Environment.CIRCLE_JOB }}
+            paths: 
+              - ~/.m2
+              - ~/.gradle
         - run:
             name: Script
             command: |
