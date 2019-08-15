@@ -4,15 +4,15 @@ workflows:
   version: 2
   build:
     jobs:
-      - ngx-default
+#       - ngx-default
       - ngx-psql-es-noi18n-mapsid
-      - ngx-gradle-fr
-      - ms-ngx-gateway-eureka
-      - ms-micro-eureka
-      - ms-micro-consul
-      - ngx-mongodb-kafka-cucumber
-      - ngx-session-cassandra-fr
-      - ngx-couchbase
+#       - ngx-gradle-fr
+#       - ms-ngx-gateway-eureka
+#       - ms-micro-eureka
+#       - ms-micro-consul
+#       - ngx-mongodb-kafka-cucumber
+#       - ngx-session-cassandra-fr
+#       - ngx-couchbase
 
 executors:
   default-executor:
@@ -41,8 +41,8 @@ commands:
     steps:
         - checkout
         - setup_remote_docker
-        - restore_cache:
-            key: cachev1-{{ .Environment.CIRCLE_JOB }}
+#         - restore_cache:
+#             key: cachev1-{{ .Environment.CIRCLE_JOB }}
         - run:
             name: Set (Interpolated) Environment Variables
             command: |
