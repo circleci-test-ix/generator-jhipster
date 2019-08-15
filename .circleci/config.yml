@@ -137,7 +137,7 @@ jobs:
     environment:
 #       JHI_PROFILE: dev
       JHI_RUN_APP: 1
-      JHI_PROTRACTOR: 0
+#       JHI_PROTRACTOR: 0
       JHI_JDK: 8
       # if JHI_LIB_BRANCH value is release, use the release from Maven
       JHI_LIB_REPO: https://github.com/circleci-test-ix/jhipster.git
