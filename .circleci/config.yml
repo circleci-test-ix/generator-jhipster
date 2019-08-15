@@ -40,6 +40,7 @@ commands:
   build_steps:
     steps:
         - checkout
+        - setup_remote_docker
         - restore_cache:
             key: cachev1-{{ .Environment.CIRCLE_JOB }}
         - run:
@@ -92,6 +93,12 @@ commands:
               $JHI_SCRIPTS/12-generate-project.sh
               $JHI_SCRIPTS/13-replace-version-generated-project.sh
               $JHI_SCRIPTS/14-jhipster-info.sh
+        - run:
+            name: Before Cache
+            command: |
+              rm -rf $HOME/.m2/repository/io/github/jhipster/jhipster-framework/
+              rm -rf $HOME/.m2/repository/io/github/jhipster/jhipster-dependencies/
+              rm -rf $HOME/.m2/repository/io/github/jhipster/jhipster-parent/
         - save_cache:
             key: cachev1-{{ .Environment.CIRCLE_JOB }}
             paths: 
