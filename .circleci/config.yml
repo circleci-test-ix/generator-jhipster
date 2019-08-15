@@ -82,7 +82,7 @@ commands:
               # Update NPM
               #npm install -g npm
               # Install Yarn
-              sudo npm install -g yarn
+              #sudo npm install -g yarn
               $JHI_SCRIPTS/04-git-config.sh        
         - run:
             name: Install
