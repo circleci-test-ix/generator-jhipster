@@ -126,6 +126,7 @@ commands:
               
 jobs:
   ngx-default:
+    resource_class: large
     executor: default-executor
     environment:
       JHI_APP: ngx-default
