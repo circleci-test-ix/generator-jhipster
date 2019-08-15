@@ -189,8 +189,12 @@ jobs:
             # Use this for Protractor
             #echo 'export DISPLAY=:99.0' >> $BASH_ENV
             #sh -e /etc/init.d/xvfb start
-            curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-            sudo apt-get install -y nodejs
+            #curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+            #sudo apt-get install -y nodejs
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+            export NVM_DIR=$HOME/.nvm
+            source $NVM_DIR/nvm.sh
+            nvm install 10.16.2
             # Update NPM
             #npm install -g npm
             # Install Yarn
