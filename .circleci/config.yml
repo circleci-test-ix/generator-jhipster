@@ -16,6 +16,7 @@ workflows:
 
 executors:
   default-executor:
+    working_directory: ~/circleci-test-ix/generator-jhipster/project
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
         environment:
