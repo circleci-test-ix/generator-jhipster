@@ -50,6 +50,7 @@ function generateProject() {
 }
 
 mydir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo "**** $mydir"
 JHI_SAMPLES="$mydir/samples"
 
 if [ "$1" = "list" ]; then
