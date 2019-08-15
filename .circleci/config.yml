@@ -68,8 +68,14 @@ commands:
               java -version
               export TZ=Australia/Canberra
               date
-              
-              # Install node 10
+              $JHI_SCRIPTS/04-git-config.sh
+        - run:
+            name: Install
+            command: |
+              #----------------------------------------------------------------------
+              # Install JHipster and generate project+entities
+              #----------------------------------------------------------------------
+               # Install node 10
               export NVM_DIR="/opt/circleci/.nvm"
               [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
               nvm install 10.16.2
@@ -78,13 +84,6 @@ commands:
               wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
               sudo dpkg -i google-chrome-stable_current_amd64.deb
               
-              $JHI_SCRIPTS/04-git-config.sh
-        - run:
-            name: Install
-            command: |
-              #----------------------------------------------------------------------
-              # Install JHipster and generate project+entities
-              #----------------------------------------------------------------------
               $JHI_SCRIPTS/10-install-jhipster.sh
               $JHI_SCRIPTS/11-generate-entities.sh
               $JHI_SCRIPTS/12-generate-project.sh
