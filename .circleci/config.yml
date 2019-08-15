@@ -158,19 +158,6 @@ jobs:
       JHI_SONAR: 1
     steps:
       - checkout
-      
-
-  ngx-default:
-    resource_class: large
-    executor: default-executor
-    environment:
-      JHI_APP: ngx-default
-      JHI_PROFILE: prod
-      JHI_PROTRACTOR: 1
-      JHI_ENTITY: sql
-      JHI_SONAR: 1
-    steps:
-      - checkout
       - run:
           name: Set (Interpolated) Environment Variables
           command: |
@@ -234,6 +221,19 @@ jobs:
             rm -rf $HOME/.m2/repository/io/github/jhipster/jhipster-framework/
             rm -rf $HOME/.m2/repository/io/github/jhipster/jhipster-dependencies/
             rm -rf $HOME/.m2/repository/io/github/jhipster/jhipster-parent/
+      
+
+  ngx-default:
+    resource_class: large
+    executor: default-executor
+    environment:
+      JHI_APP: ngx-default
+      JHI_PROFILE: prod
+      JHI_PROTRACTOR: 1
+      JHI_ENTITY: sql
+      JHI_SONAR: 1
+    steps:
+      - build_steps
       
   ngx-psql-es-noi18n-mapsid:
     executor: default-executor
