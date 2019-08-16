@@ -75,7 +75,7 @@ commands:
               #----------------------------------------------------------------------
               # Install JHipster and generate project+entities
               #----------------------------------------------------------------------
-               # Install node 10
+              # Install node 10
               export NVM_DIR="/opt/circleci/.nvm"
               [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
               nvm install 10.16.2
